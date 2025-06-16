@@ -1,0 +1,118 @@
+Mongoose is asynchronous code and it runs after the synchronous code it does not exceute line by line
+
+1. MongoDB Installation
+    Option 1: Local Installation
+
+        Download from: mongodb.com/try/download/community
+        Install MongoDB Community Edition
+        Start server using: mongod
+
+    Option 2: MongoDB Atlas (Cloud)
+
+        Visit: mongodb.com/cloud/atlas
+        Create account → Create free cluster
+        Whitelist IP address
+        Create DB user and password
+        Copy cloud URI for connection
+
+2. MongoDB Connection (Using Mongoose)
+    Install Mongoose: npm install mongoose
+    Connect to MongoDB:
+    Local: mongodb://localhost:27017/myDB
+    Cloud: Replace URI placeholders with your DB name, username, and password
+
+    Example:
+        mongoose.connect('mongodb://localhost:27017/myDB', {...})
+    
+    Code : 
+        npm install mongoose
+        const mongoose = require('mongoose');
+
+        mongoose.connect('mongodb://localhost:27017/myDB', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        })
+        .then(() => console.log('MongoDB connected'))
+        .catch((err) => console.log(err));
+
+
+3. Schema (Data Structure)
+    A schema defines structure of documents
+    Created using: mongoose.Schema()
+
+    Includes:
+    Field name
+    Field type (String, Number, Date, etc.)
+    Optional: default values, validation, required fields
+
+    Example fields:
+        name: String
+        email: String
+        age: Number
+    createdAt: Date (default: now)
+
+    code : 
+        const mongoose = require('mongoose');
+
+        const userSchema = new mongoose.Schema({
+        name: String,
+        email: String,
+        age: Number,
+        createdAt: {
+            type: Date,
+            default: Date.now
+        }
+        });
+
+4. Model (Interface to Collection)
+
+    Created using: mongoose.model('ModelName', schema)
+    Used to perform CRUD on that collection
+    Collection name = plural lowercase of model (e.g., User → users)
+
+    Code: 
+        const User = mongoose.model('User', userSchema);
+
+5. CRUD Operations
+    Create
+        Add a document:
+        const doc = new Model({...})
+        doc.save()
+        Code : 
+            const newUser = new User({ name: 'John', email: 'john@example.com', age: 25 });
+            newUser.save();
+
+    Read
+        Find all: Model.find()
+        Code : 
+            User.find().then(data => console.log(data));
+
+        Find one: Model.findOne({ key: value })
+        Code : 
+            User.findOne({ name: 'John' }).then(data => console.log(data));
+
+        Find by ID: Model.findById(id)
+        Code : 
+            User.findById('userIdHere').then(data => console.log(data));
+
+
+    Update
+        Update one: Model.updateOne({ condition }, { newData })
+        Code : 
+            User.updateOne({ name: 'John' }, { age: 30 });
+
+        Update by ID: Model.findByIdAndUpdate(id, newData)
+        Code : 
+            User.findByIdAndUpdate('userIdHere', { age: 32 });
+
+
+    Delete
+        Delete one: Model.deleteOne({ condition })
+        Code : 
+            User.deleteOne({ name: 'John' });
+
+        Delete by ID: Model.findByIdAndDelete(id)
+        Code : 
+            User.findByIdAndDelete('userIdHere');
+
+

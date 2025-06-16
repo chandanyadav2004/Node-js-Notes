@@ -1,0 +1,2 @@
+project or parctice 
+we are making a notes taking web app 

@@ -1,0 +1,32 @@
+initialize a project with npm
+ npm init -y
+ 
+express install
+
+setting up parsers for from
+    app.use(express.json());
+    app.use(express.urlencoded({extended:true}));
+
+setting up ejs for ejs pages 
+    install ejs from npm 
+    setup ejs as a middleware for view engine 
+    ejs syntax = <%= %> put = for print 
+
+setting up public static files 
+    __dirname = directory name where u are working or data has been store and = current directory
+
+
+
+dynamic routing
+    dynamic routing 
+        sabse pahle browser par jane
+        url likhiye apna jo aapko chahiye and enter dabaaiya 
+        ab us url route ko  create kariye
+        res bhejiya kuch bhi
+        ab usi url ko agar dynamic banaana hai to realise karo konsa part dynamic hai aur us part ke aage route mein : laga do 
+        colon  : ka matlab hai /profile/:xyz after the colon it become dynamic and before the colon it is static
+
+    how to get data coming from frontendat backend route
+
+
+

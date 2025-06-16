@@ -1,0 +1,39 @@
+Data Storage:
+    aisa kuch jaha par hum saare users ki info store kar sakte hai
+    file -  data.txt  => It is not efficient 
+    database => It can store every thing that data in binary ,data can be image,video,audio ,efficient
+
+TYPES OF DATABASES :
+    -SQL | NoSQL
+    - SQL -> ka jo tarika hai woh data ko ek roop mein rakha na aur use roop ka name hai tables i.e rows and columns 
+    - NoSQl -> ye ek type ka object mei data store karta jaise se { name : "hello" , age : 24 }
+    - NoSQL name hai humara database  jo mongoDB ko follow karta hai
+
+What and why :
+
+
+terminologies :
+    -collections -> 
+    -Documents ->
+    -
+
+
+Theory no 1 :
+    - backend has 2 sever 1 node server i.e App server  and another is database server
+    - Application server -> woh hota hai jo route ,requests ko handle karta hai  & sab kuch kar na sirf database ka kaam leave kar ke
+    - Database Server ->use to store  that data 
+    
+
+Database -> Collection  ->Documents
+CODE 
+-------------------------------------------------
+
+
+CODE                  DATABASE
+----------------------------------------------------
+mongoose.connect -> database create
+model create     -> Collection create
+CREATE CODE      -> Documents create
+
+
+
