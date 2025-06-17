@@ -19,6 +19,19 @@ app.get('/read',async (req,res)=>{
     res.render("read",{users: allUser});
 })
 
+app.get('/edit/:id',async (req,res)=>{
+    let user = await userModel.findOne({_id : req.params.id});
+    res.render("edit",{user})
+    
+})
+
+app.post('/update/:id',async (req,res)=>{
+    let {name, email,  image} = req.body;
+    let user = await userModel.findOneAndUpdate({_id : req.params.id},{image,email,name}, {new : true});
+    res.redirect("/read");
+    
+})
+
 app.get('/delete/:id',async (req,res)=>{
     let allUser = await userModel.findOneAndDelete({_id : req.params.id})
     res.redirect("/read");
@@ -36,6 +49,7 @@ app.post('/create',async (req,res)=>{
     console.log(createdUser);
 
 })
+
 
 
 
