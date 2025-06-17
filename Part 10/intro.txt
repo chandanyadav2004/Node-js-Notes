@@ -1,0 +1,17 @@
+authentication:
+  - user ko profile dene se pahle ye check karna hota hai ke user hai kaun
+
+authorization:
+  - authorized to perform some tasks which are only allowed to be executed by the admin
+
+Problem:
+  - Server har baar bhool jata hai ki app kaun ho, ab kyuki server bhool jaata hai aap kaun ho  har baar wo har kaam ke liye aapse puchhega aap kaun ho
+
+Solution:
+  - cookies and session
+
+Concepts:
+  - sabse pahle humein kuchh cheejein seekhni hai alag alag
+    i) Cookie kaise set karta hai
+    ii) bcrypt kaise use karte hai for password encryption and decryption
+    iii) jwt kya hai and jwt mein data kaise store kare and baahar nikaalein
